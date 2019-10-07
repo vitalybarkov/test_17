@@ -32,14 +32,14 @@ class Movies extends Model
         $result = "";
         $genresQuantity = sizeof(App\Genres::getAllGenres());
 
-        if (is_int((int) $duration) && $duration > 0 && $duration < self::$MAXDURATION
-            && is_int((int) $rating) && $rating > self::$RATINGRANGE[0] && $rating < self::$RATINGRANGE[1] + 1
-            && is_int((int) $genre) && $genre < $genresQuantity + 1
+        if ((int)$duration && $duration > 0 && $duration < self::$MAXDURATION
+            && (int)$rating && $rating > self::$RATINGRANGE[0] && $rating < self::$RATINGRANGE[1] + 1
+            && (int)$genre && $genre < $genresQuantity + 1
             && is_string((string) $description)) {
             $data = array(
-                'duration'      => $duration,
-                'rating'        => $rating,
-                'genre'         => $genre,
+                'duration'      => (int)$duration,
+                'rating'        => (int)$rating,
+                'genre'         => (int)$genre,
                 'description'   => $description,
                 'created_at'    => $created_at,
                 'updated_at'    => $updated_at

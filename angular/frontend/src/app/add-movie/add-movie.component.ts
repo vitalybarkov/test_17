@@ -20,7 +20,7 @@ export class AddMovieComponent implements OnInit {
 
   private MAXDURATION: number = 10000;
   private MAXRATING: number = 10;
-  private ducationValid: boolean = false;
+  private durationValid: boolean = false;
   private ratingValid: boolean = false;
   private genreValid: boolean = false;
   private descriptionValid: boolean = false;
@@ -39,20 +39,21 @@ export class AddMovieComponent implements OnInit {
     this.http.get(this.HOST + 'genres')
     .subscribe((response) => {
       this.genres = response;
-      // console.log(this.genres);
     })
   }
 
   durationValidate () {
-    if (Number(this.duration) > 0 && Number(this.duration) < this.MAXDURATION) {
-      this.ducationValid = true;
+    let duration = Number((this.duration));
+    if (!(this.duration.indexOf('.') > -1) && Number.isInteger(duration) && duration > 0 && duration < this.MAXDURATION) {
+      this.durationValid = true;
     } else {
-      this.ducationValid = false;
+      this.durationValid = false;
     }
   }
 
   ratingValidate () {
-    if (Number(this.rating) > 0 && Number(this.rating) < this.MAXRATING + 1) {
+    let rating = Number((this.rating));
+    if (!(this.rating.indexOf('.') > -1) && Number.isInteger(rating) && rating > 0 && rating < this.MAXRATING + 1) {
       this.ratingValid = true;
     } else {
       this.ratingValid = false;
@@ -60,7 +61,8 @@ export class AddMovieComponent implements OnInit {
   }
 
   genreValidate () {
-    if (Number(this.genre) >= 0 && Number(this.genre) < this.genres.length) {
+    let genre = Number((this.genre));
+    if (!(this.genre.indexOf('.') > -1) && Number.isInteger(genre) && genre >= 0 && genre < this.genres.length) {
       this.genreValid = true;
     } else {
       this.genreValid = false;
@@ -76,7 +78,7 @@ export class AddMovieComponent implements OnInit {
   }
 
   formValidate () {
-    if (this.ducationValid && this.ratingValid && this.genreValid && this.descriptionValid) {
+    if (this.durationValid && this.ratingValid && this.genreValid && this.descriptionValid) {
       return true;
     }
 
@@ -107,7 +109,7 @@ export class AddMovieComponent implements OnInit {
       this.genre = '';
       this.description = '';
 
-      this.ducationValid = false;
+      this.durationValid = false;
       this.ratingValid = false;
       this.genreValid = false;
       this.descriptionValid = false;
