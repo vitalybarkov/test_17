@@ -1,0 +1,26 @@
+<div class="addMovie" [ngClass]="{sendedForm: response, newForm: !response}">
+    <form>
+        <h3 (click)="showTheForm()">ADD MOVIE</h3>
+        <div [ngClass]="{showForm: formShowed, hideForm: !formShowed}">
+            <div>
+                <label>Duration</label>
+                <input (input)="durationValidate()" [ngClass]="{valid: ducationValid, invalid: !ducationValid}" type="text" [(ngModel)]="duration" name="duration" placeholder="0">
+            </div>
+            <div>
+                <label>Rating</label>
+                <input (input)="ratingValidate()" [ngClass]="{valid: ratingValid, invalid: !ratingValid}" type="text" [(ngModel)]="rating" name="rating" placeholder="0">
+            </div>
+            <div>
+                <label>Genre</label>
+                <select [(ngModel)]="genre" name="genre" (input)="genreValidate()" [ngClass]="{valid: genreValid, invalid: !genreValid}">
+                    <option *ngFor="let item of genres; let i = index;" value="{{ item.id }}">{{ item.name }}</option>
+                </select>
+            </div>
+            <div>
+                <label>Description</label>
+                <textarea (input)="descriptionValidate()" [ngClass]="{valid: descriptionValid, invalid: !descriptionValid}" [(ngModel)]="description" name="description" placeholder="Movie description here"></textarea>
+            </div>
+            <button type="submit" (click)="store()" [disabled]="!formValidate()">Add the Movie</button>
+        </div>
+    </form>
+</div>

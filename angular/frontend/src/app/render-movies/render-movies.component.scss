@@ -1,0 +1,45 @@
+div.renderMovies {
+    border-radius: 8px;
+    border: 3px #ccc dotted;
+    padding: 1rem;
+    margin: .5rem 10%;
+
+    h3 {
+        margin: 0 0 1.25rem;
+    }
+    
+    .search {
+        display: block;
+        float: right;
+        position: relative;
+        margin: 0;
+        font-size: 18px;
+        margin-top: -.1em;
+        padding: .2em .3em;
+        border-radius: 9px;
+        background-color: none;
+    }
+
+    table {
+        width: 100%;
+
+        th, td {
+            padding: .5em;
+            vertical-align: top;
+            text-align: left;
+            color: #8E9A9E;
+        }
+
+        th {
+            border-bottom: 2px whitesmoke solid;
+        }
+    }
+}
+
+.odd {
+    background-color: whitesmoke;
+}
+
+.even {
+    background-color: none;
+}

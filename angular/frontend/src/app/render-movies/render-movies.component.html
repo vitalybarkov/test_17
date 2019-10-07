@@ -1,0 +1,29 @@
+<div class="renderMovies">
+    <div>
+        <input class="search" (keyup.enter)="search()" [(ngModel)]="searchQueary" placeholder="Search Movie">
+        <h3>MOVIES</h3>
+    </div>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>duration</th>
+            <th>rating</th>
+            <th>genre</th>
+            <th>description</th>
+        </tr>
+        <tr *ngFor="
+            let even = even;
+            let odd = odd;
+            let item of response[1];
+        " [ngClass]="{
+            even: even,
+            odd: odd
+        }">
+            <td>{{ item.id }}</td>
+            <td>{{ item.duration }}</td>
+            <td>{{ item.rating }}</td>
+            <td>{{ item.genre }}</td>
+            <td>{{ item.description }}</td>
+        </tr>
+    </table>
+</div>

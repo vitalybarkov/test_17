@@ -1,0 +1,48 @@
+div.addMovie {
+    border-radius: 8px;
+    border: 3px lightgreen dotted;
+    padding: 1rem;
+    margin: .5rem 10%;
+
+    h3 {
+        margin: 0 0 1rem;
+    }
+
+    div {
+        margin: .25rem 0;
+    }
+
+    label {
+        display: block;
+        float: left;
+        width: 25%;
+    }
+
+    .showForm {
+        display: block;
+    }
+
+    .hideForm {
+        display: none;
+    }
+
+    .valid {
+        background-color: greenyellow;
+        transition: background-color .25s linear;
+    }
+
+    .invalid {
+        background-color: none;
+        transition: background-color .25s linear;
+    }
+}
+
+.newForm {
+    background-color: none;
+    transition: background-color .5s linear;
+}
+
+.sendedForm {
+    background-color: greenyellow;
+    transition: background-color .1s linear;
+}

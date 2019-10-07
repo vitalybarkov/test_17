@@ -1,0 +1,24 @@
+{
+    "sqltools.connections": [
+        {
+            "database": "app",
+            "dialect": "MySQL",
+            "isActive": false,
+            "isConnected": false,
+            "name": "my",
+            "password": "root",
+            "port": 3306,
+            "server": "localhost",
+            "username": "root"
+        },
+        {
+            "database": "appvb",
+            "dialect": "PostgreSQL",
+            "name": "my_p",
+            "password": "root",
+            "port": 5432,
+            "server": "localhost",
+            "username": "postgres"
+        }
+    ]
+}
