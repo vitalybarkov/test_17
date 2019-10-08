@@ -23,8 +23,8 @@ class Movies extends Model
             ->select('movies.id', 'movies.duration', 'movies.rating', 'genres.genre', 'movies.description')
             ->where('duration', 'LIKE', "%$query%")
             ->orWhere('rating', 'LIKE', "%$query%")
-            ->orWhere('genres.genre', 'LIKE', "%$query%")
-            ->orWhere('description', 'LIKE', "%$query%")
+            ->orWhere('genres.genre', 'iLIKE', "%$query%")
+            ->orWhere('description', 'iLIKE', "%$query%")
             ->get();
 
         return $result;
