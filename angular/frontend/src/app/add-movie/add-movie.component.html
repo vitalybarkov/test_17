@@ -13,7 +13,7 @@
             <div>
                 <label>Genre</label>
                 <select [(ngModel)]="genre" name="genre" (input)="genreValidate()" [ngClass]="{valid: genreValid, invalid: !genreValid}">
-                    <option *ngFor="let item of genres; let i = index;" value="{{ item.id }}">{{ item.name }}</option>
+                    <option *ngFor="let item of genres; let i = index;" value="{{ item.id }}">{{ item.genre }}</option>
                 </select>
             </div>
             <div>

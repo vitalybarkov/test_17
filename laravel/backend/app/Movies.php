@@ -16,12 +16,15 @@ class Movies extends Model
         return static::all();
     }
 
-    public static function getMatchingSearchQuery ($quary = '') {
-        $result = static::select(DB::raw("*"))
-            ->where('duration', 'LIKE', "%$quary%")
-            ->orWhere('rating', 'LIKE', "%$quary%")
-            ->orWhere('genre', 'LIKE', "%$quary%")
-            ->orWhere('description', 'LIKE', "%$quary%")
+    public static function getMatchingSearchQuery ($query = '') {
+        $result = 
+            DB::table('movies')
+            ->join('genres', 'movies.genre', '=', 'genres.id')
+            ->select('movies.id', 'movies.duration', 'movies.rating', 'genres.genre', 'movies.description')
+            ->where('duration', 'LIKE', "%$query%")
+            ->orWhere('rating', 'LIKE', "%$query%")
+            ->orWhere('genres.genre', 'LIKE', "%$query%")
+            ->orWhere('description', 'LIKE', "%$query%")
             ->get();
 
         return $result;

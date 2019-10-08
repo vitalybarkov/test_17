@@ -30,12 +30,13 @@ export class RenderMoviesComponent implements OnInit {
     this.http.get(this.HOST)
     .subscribe((response) => {
       this.responsePrev = response;
+      // console.log(this.response);
 
       this.responsePrev[0].forEach(genre => {
         let i = 0;
         this.responsePrev[1].forEach(movie => {
           if (movie.genre == genre.id) {
-            this.responsePrev[1][i].genre = genre.name;
+            this.responsePrev[1][i].genre = genre.genre;
           }
           i++;
         });
@@ -51,15 +52,16 @@ export class RenderMoviesComponent implements OnInit {
   }
 
   search () {
-    this.http.get(this.HOST + 'search?queary=' + this.searchQueary)
+    this.http.get(this.HOST + 'search?query=' + this.searchQueary)
     .subscribe((response) => {
       this.response = response;
+      console.log(this.response);
 
       this.response[0].forEach(genre => {
         let i = 0;
         this.response[1].forEach(movie => {
           if (movie.genre == genre.id) {
-            this.response[1][i].genre = genre.name;
+            this.response[1][i].genre = genre.genre;
           }
           i++;
         });

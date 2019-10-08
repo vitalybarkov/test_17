@@ -18,12 +18,14 @@ class MoviesController extends Controller
             $genres,
             $movies
         );
+
+        // return (string)(int)('34');
         // return view('moviesPage', compact('movies', 'genres'));
     }
 
     public function search (Request $request) {
         $movies = App\Movies::getMatchingSearchQuery(
-            $request->input('queary')
+            $request->input('query')
         );
         $genres = App\Genres::getAllGenres();
 

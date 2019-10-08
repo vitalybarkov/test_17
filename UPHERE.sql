@@ -19,9 +19,9 @@
 -- than change to BACKEND folder, and execute 'php artisan migrate' for the database migration
 
 -- than connect to appvb database and insert this genres in to the table named genres
-INSERT INTO genres (name) VALUES ('Drama');
-INSERT INTO genres (name) VALUES ('Comedy');
-INSERT INTO genres (name) VALUES ('Action');
+INSERT INTO genres (genre) VALUES ('Drama');
+INSERT INTO genres (genre) VALUES ('Comedy');
+INSERT INTO genres (genre) VALUES ('Action');
 
 -- after that go up the servers: 'php artisan serve' for BACKEND, and 'ng serve' for FRONTEND
 -- after that check the http://localhost:8000 for some data response
